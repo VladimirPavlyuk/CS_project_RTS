@@ -26,8 +26,6 @@ public:
 
 	float get_vision_range();
 
-	float get_detection_range();
-
 	bool is_mechanical();
 
 	bool is_biological();
@@ -38,15 +36,27 @@ public:
 
 	bool is_psionic();
 
-	bool is_large();
+	bool is_massive();
+
+	bool is_building();
 
 	bool is_air_target();
 
 	bool is_ground_target();
+	
+	bool is_detector();
 
 	char get_player();
 
+	int get_minerals_cost();
+
+	int get_gas_cost();
+
+	int get_supply_cost();
+
 	int get_number();
+
+	virtual bool get_requirnments();
 
 protected:
 
@@ -66,6 +76,14 @@ protected:
 
 	int armor;
 
+	int minerals_cost;
+
+	int gas_cost;
+
+	int supply_cost;
+
+	int supply_gives;
+
 	struct attributes
 	{
 		bool biological;
@@ -73,16 +91,16 @@ protected:
 		bool light;
 		bool armored;
 		bool psionic;
-		bool large;
+		bool massive;
+		bool building;
 		bool air_target;
 		bool ground_target;
+		bool detector;
 	};
 
 	attributes unit_attributes;
 
 	float vision_range;
-
-	float detection_range;
 
 	int number;  
 

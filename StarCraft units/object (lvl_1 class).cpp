@@ -50,81 +50,74 @@ float object::get_vision_range()
 	return vision_range;
 };
 
-float object::get_detection_range()
-{
-	return detection_range;
-};
-
 bool object::is_mechanical()
 {
-	if (unit_attributes.mechanical)
-		return true;
-	else
-		return false;
+	return unit_attributes.mechanical;
 };
 
 bool object::is_biological()
 {
-	if (unit_attributes.biological)
-		return true;
-	else
-		return false;
+	return unit_attributes.biological;
 };
 
 bool object::is_light()
 {
-	if (unit_attributes.light)
-		return true;
-	else
-		return false;
+	return unit_attributes.light;
 };
 
 bool object::is_armored()
 {
-	if (unit_attributes.armored)
-		return true;
-	else
-		return false;
+	return unit_attributes.armored;
 };
 
 bool object::is_psionic()
 {
-	if (unit_attributes.psionic)
-		return true;
-	else
-		return false;
-};
+	return unit_attributes.psionic;
+}
 
-bool object::is_large()
+bool object::is_massive()
 {
-	if (unit_attributes.large)
-		return true;
-	else
-		return false;
+	return unit_attributes.massive;
+}
+
+bool object::is_building()
+{
+	return unit_attributes.building;
 }
 
 bool object::is_air_target()
 {
-	if (unit_attributes.air_target)
-		return true;
-	else
-		return false;
+	return unit_attributes.air_target;
 };
 
 bool object::is_ground_target()
 {
-	if (unit_attributes.ground_target)
-		return true;
-	else
-		return false;
+	return unit_attributes.ground_target;
+}
+bool object::is_detector()
+{
+	return unit_attributes.detector;
 };
 
 char object::get_player()
 {
 	return player;
-};
+}
+int object::get_minerals_cost()
+{
+	return minerals_cost;
+}
+int object::get_gas_cost()
+{
+	return gas_cost;
+}
+int object::get_supply_cost()
+{
+	return supply_cost;
+}
+;
 
 int object::get_number()
 {
 	return number;
-};
+}

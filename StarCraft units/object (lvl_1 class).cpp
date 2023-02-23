@@ -11,14 +11,18 @@ object::object()
 void object::hp_check()
 {
 	if (current_hp <= 0)
-	this->execute_death();
+	this->execute_delete();
 };
 
-void object::execute_death()  // Death.
+void object::execute_delete()  // Death.
 {
 // Delete element in array/list.
 // Death animation.
-};
+}
+void object::execute_death()
+{
+}
+;
 
 float object::check_range(float x, float y)
 {
@@ -97,11 +101,36 @@ bool object::is_ground_target()
 bool object::is_detector()
 {
 	return unit_attributes.detector;
-};
+}
+bool object::is_invisible()
+{
+	return unit_attributes.invisible;
+}
+bool object::is_borrowed()
+{
+	return unit_attributes.borrowed;
+}
+bool object::is_being_transported()
+{
+	return unit_attributes.being_transported;
+}
+bool object::movable()
+{
+	return unit_attributes.can_move;
+}
+bool object::attacker()
+{
+	return unit_attributes.can_attack;
+}
+;
 
 char object::get_player()
 {
 	return player;
+}
+char object::get_side()
+{
+	return side;
 }
 int object::get_minerals_cost()
 {
@@ -120,4 +149,9 @@ int object::get_supply_cost()
 int object::get_number()
 {
 	return number;
+}
+
+bool object::get_requirnments()
+{
+	return false;
 }

@@ -12,6 +12,8 @@ public:
 
 	void hp_check();
 
+	void execute_delete(); 
+
 	void execute_death();
 
 	float check_range(float x, float y);
@@ -46,7 +48,19 @@ public:
 	
 	bool is_detector();
 
-	char get_player();
+	bool is_invisible();
+
+	bool is_borrowed();
+
+	bool is_being_transported();
+
+	bool movable();
+
+	bool attacker();
+
+	char get_player();  //
+
+	char get_side();
 
 	int get_minerals_cost();
 
@@ -59,6 +73,8 @@ public:
 	virtual bool get_requirnments();
 
 protected:
+
+	char side;
 
 	char player;
 
@@ -82,8 +98,6 @@ protected:
 
 	int supply_cost;
 
-	int supply_gives;
-
 	struct attributes
 	{
 		bool biological;
@@ -96,12 +110,17 @@ protected:
 		bool air_target;
 		bool ground_target;
 		bool detector;
+		bool borrowed;
+		bool invisible;
+		bool being_transported;
+		bool can_move;
+		bool can_attack;
 	};
 
 	attributes unit_attributes;
 
 	float vision_range;
 
-	int number;  
+	int number;
 
 };

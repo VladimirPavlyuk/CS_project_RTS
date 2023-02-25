@@ -18,7 +18,7 @@
     <ClCompile Include="Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="object %28lvl_1 class%29.cpp">
+    <ClCompile Include="unit %28lvl_1 class%29.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
@@ -26,7 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="object %28lvl_1 class%29.h">
+    <ClInclude Include="unit %28lvl_1 class%29.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="player.h">

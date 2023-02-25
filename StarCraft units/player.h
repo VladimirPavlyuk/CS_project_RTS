@@ -1,27 +1,44 @@
 #pragma once
-#include <string>
+#include <list>
+#include "unit (lvl_1 class).h"
+
 
 class player
 {
-protected:
-
-
 
 public:
+	
+	player();
+
+	~player();
+
+	list<unit*> player_units;
 
 	char nickname[12];
+
+	char race;
+
+	char side;
 
 	char colour;
 
 	unsigned int minerals;
 
-	unsigned int gas;
+	struct resourses
+	{
+		int minerals;
+		int gas;
+		int supply_available;
+		int supply_current;
+	};
 
-	unsigned int supply_max;
+	resourses player_resourses;
 
-	unsigned int supply_current;
+	int units[120];  // уточнить число
 
-	// добавить расшир€емый массив/односв€занный список юнитов.
+	int to_build[120];  // уточнить число
+
+	list<unit*>::iterator to_destroy[120] = { player_units.end() }; 
 	
 };
 

@@ -1,2 +1,3 @@
 #include "player.h"
-#include <string>
+#include <list>
+using namespace std;

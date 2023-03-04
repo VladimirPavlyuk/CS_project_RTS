@@ -1,11 +1,17 @@
 #include <iostream>
 #include "player.h"
-#include "unit (lvl_1 class).h"
-//  include other classes
-using namespace std;
+#include "unit.h"
+#include "game.h"
+#include <SFML/Graphics.hpp>
 
 int main()
 {
-
-	return 0;
+	game current_game;
+	while (current_game.is_running())
+	{
+		current_game.events();
+		if (current_game.t % 20 == 0)
+			current_game.draw();
+		current_game.t++;
+	}
 }

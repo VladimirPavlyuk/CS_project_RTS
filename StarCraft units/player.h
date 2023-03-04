@@ -1,10 +1,12 @@
 #pragma once
 #include <list>
-#include "unit (lvl_1 class).h"
+#include "unit.h"
 
 
 class player
 {
+
+
 
 public:
 	
@@ -12,7 +14,7 @@ public:
 
 	~player();
 
-	list<unit*> player_units;
+	std::list<unit*> player_units;
 
 	char nickname[12];
 
@@ -38,7 +40,7 @@ public:
 
 	int to_build[120];  // уточнить число
 
-	list<unit*>::iterator to_destroy[120] = { player_units.end() }; 
+	std::list<unit*>::iterator to_destroy[120] = { player_units.end() }; 
 	
 };
 

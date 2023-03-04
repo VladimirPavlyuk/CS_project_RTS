@@ -18,18 +18,27 @@
     <ClCompile Include="Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="unit %28lvl_1 class%29.cpp">
+    <ClCompile Include="unit.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="move_ground.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="unit %28lvl_1 class%29.h">
+    <ClInclude Include="unit.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="move_ground.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

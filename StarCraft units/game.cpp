@@ -1,11 +1,14 @@
 #include "game.h"
 #include "global.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <cmath>
 
 game::game()
 {
 	//  create map, к карте будут привязаны количество сторон и игроков.
-	sides_number = sides_;  // Пока что из global, затем выбор из разных карт с помощью config-файлов/
-	players_for_side_number = players_for_side_;
+	sides_number = sides_global;  // Пока что из global, затем выбор из разных карт с помощью config-файлов/
+	players_for_side_number = players_for_side_global;
 	sides = new player * [sides_number];
 	for (int side = 0; side < sides_number; side++)
 	{
@@ -15,6 +18,21 @@ game::game()
 
 
 
+}
+
+game::~game()
+{
+	sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+}
+
+int game::get_global_time()
+{
+	return global_time.getElapsedTime().asMilliseconds();
+}
+
+bool game::is_running()
+{
+	return false;
 }
 
 void game::events()

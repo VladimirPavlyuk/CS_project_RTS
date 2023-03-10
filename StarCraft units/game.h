@@ -1,5 +1,8 @@
 #pragma once
 #include "player.h"
+#include <SFML/Graphics.hpp>
+#include "global.h"
+
 class game
 {
 public:
@@ -8,6 +11,7 @@ public:
 
 	~game();
 
+	int get_global_time();
 
 	int t; // global time, измеряется в логических шагах
 
@@ -23,7 +27,9 @@ public:
 
 	int players_for_side_number;
 
-	player** sides;
+	player player_1;
+
+	sf::Clock global_time;
 
 };
 

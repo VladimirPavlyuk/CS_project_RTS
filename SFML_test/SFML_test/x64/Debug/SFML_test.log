@@ -1,0 +1,12 @@
+﻿  game.cpp
+D:\MyProjects\SFML_test\SFML_test\game.cpp(39,49): warning C4244: =: преобразование "T" в "float", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\MyProjects\SFML_test\SFML_test\game.cpp(40,49): warning C4244: =: преобразование "T" в "float", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+  SFML_test.vcxproj -> D:\MyProjects\SFML_test\x64\Debug\SFML_test.exe

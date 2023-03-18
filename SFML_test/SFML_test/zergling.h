@@ -13,6 +13,7 @@ public:
     sf::CircleShape zergling_model;
 
 private:
+
     const float V = 100;
 };
 

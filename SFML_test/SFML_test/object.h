@@ -16,6 +16,8 @@ public:
 
 	float check_range(float x, float y);
 
+	float get_radius();
+
 	void move();
 
 	float x_1;
@@ -24,10 +26,16 @@ public:
 
 	position get_position();
 
+	int get_number();
+
 protected:
 
 	position current_position;
 
 	float v;
+
+	float radius;
+
+	int number;
 };
 

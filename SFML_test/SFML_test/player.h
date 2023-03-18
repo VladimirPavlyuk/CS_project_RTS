@@ -1,44 +1,44 @@
 #pragma once
 #include <list>
 #include "object.h"
+#include "global.h"
 
 
 class player
 {
 
-
-
 public:
+
 
 	player();
 
 	~player();
 
+	void spawn_unit(int number, position spawn_position);
+
+	bool has_selected_unit_check();	
+
 	object* unit;
 
-	char nickname[12];
+	std::list<object*> units_list;
 
-	char race;
+	object* selected;
 
-	char side;
+	char has_selected_unit;
 
-	char colour;
+	// char nickname[12];
 
-	unsigned int minerals;
+	// char race;
 
-	struct resourses
-	{
-		int minerals;
-		int gas;
-		int supply_available;
-		int supply_current;
-	};
+	// char side;
 
-	resourses player_resourses;
+	// char colour;
 
-	int units[120];  // уточнить число
+	// resourses player_resourses;
 
-	int to_build[120];  // уточнить число
+	// int units[120];  // уточнить число
+
+	// int to_build[120];  // уточнить число
 
 	//std::list<unit*>::iterator to_destroy[120] = { player_units.end() };
 

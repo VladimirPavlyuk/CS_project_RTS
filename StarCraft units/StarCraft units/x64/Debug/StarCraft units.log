@@ -1,2 +1,15 @@
-﻿  player.cpp
-  StarCraft units.vcxproj -> C:\Users\User\source\repos\CS_project_StarCraft-units\x64\Debug\StarCraft units.exe
+﻿  game.cpp
+  global.cpp
+  main.cpp
+  move_ground.cpp
+C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\StarCraft units\move_ground.cpp(7,9): warning C4244: return: преобразование "float" в "int", возможна потеря данных
+C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\StarCraft units\move_ground.cpp(12,8): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\StarCraft units\move_ground.cpp(13,8): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\StarCraft units\move_ground.cpp(23,78): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\StarCraft units\move_ground.cpp(24,78): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\StarCraft units\move_ground.cpp(25,33): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\StarCraft units\move_ground.cpp(26,33): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  unit.cpp
+  player.cpp
+  Создание кода...
+  StarCraft units.vcxproj -> C:\Users\User\source\repos\CS_project_StarCraft-units\StarCraft units\x64\Debug\StarCraft units.exe

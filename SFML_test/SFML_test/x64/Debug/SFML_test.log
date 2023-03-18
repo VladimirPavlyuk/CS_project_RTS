@@ -1,10 +1,23 @@
 ﻿  game.cpp
-D:\MyProjects\SFML_test\SFML_test\game.cpp(39,49): warning C4244: =: преобразование "T" в "float", возможна потеря данных
+D:\MyProjects\SFML_test\SFML_test\game.cpp(64,69): warning C4804: <=: небезопасное использование типа "bool" в операции
+D:\MyProjects\SFML_test\SFML_test\game.cpp(65,69): warning C4804: <=: небезопасное использование типа "bool" в операции
+D:\MyProjects\SFML_test\SFML_test\game.cpp(67,79): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
           with
           [
               T=int
           ]
-D:\MyProjects\SFML_test\SFML_test\game.cpp(40,49): warning C4244: =: преобразование "T" в "float", возможна потеря данных
+D:\MyProjects\SFML_test\SFML_test\game.cpp(67,61): warning C4244: аргумент: преобразование "T" в "float", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\MyProjects\SFML_test\SFML_test\game.cpp(76,48): warning C4805: ==: небезопасное смешение типа "char" и типа "bool" в операции
+D:\MyProjects\SFML_test\SFML_test\game.cpp(79,57): warning C4244: =: преобразование "T" в "float", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\MyProjects\SFML_test\SFML_test\game.cpp(80,57): warning C4244: =: преобразование "T" в "float", возможна потеря данных
           with
           [
               T=int

@@ -73,12 +73,24 @@ void game::events()
                 }
 
             }
-            if (player_1->has_selected_unit == true and sf::Mouse::isButtonPressed(sf::Mouse::Right) == true)
+            if (player_1->has_selected_unit == true and sf::Mouse::isButtonPressed(sf::Mouse::Right) == true and 
+                sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) == false)
             {
                 mouse_position = sf::Mouse::getPosition(window);
-                player_1->selected->x_1 = mouse_position.x;
-                player_1->selected->y_1 = mouse_position.y;
-                player_1->selected->is_moving = true;
+                player_1->selected->set_x_1(mouse_position.x);
+                player_1->selected->set_y_1(mouse_position.y);
+                player_1->selected->set_move_status_as_true();
+                while (player_1->selected->move_order_queue.empty() == 0)
+                {
+                    player_1->selected->move_order_queue.pop();
+                }
+            }
+            if (player_1->has_selected_unit == true and player_1->selected->get_move_status()
+                and sf::Mouse::isButtonPressed(sf::Mouse::Right) == true and sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+            {
+                std::cout << "LOL" << std::endl;  // debug
+                mouse_position = sf::Mouse::getPosition(window);
+                player_1->selected->move_order_queue.push(mouse_position);
             }
         
         // window closed
@@ -91,22 +103,31 @@ void game::events()
 
     for (auto unit : player_1->units_list)
     {
-        if (unit->is_moving == true)
+        if (unit->get_move_status() == true)
         {
-            unit->move();
+            unit->move(); 
+            std::cout << unit->get_x_1() << " " << unit->get_y_1() << std::endl;  // debug
+            if (unit->check_range(unit->get_x_1(), unit->get_y_1()) <= 0.01)
+            {
+                if (unit->move_order_queue.empty() == 0)
+                {
+                    std::cout << "1" << std::endl;  // debug
+                    sf::Vector2i new_order = unit->move_order_queue.front();
+                    unit->move_order_queue.pop();
+                    unit->set_x_1(new_order.x);
+                    unit->set_y_1(new_order.y);
+                    std::cout << "2" << std::endl;  // debug
+                }
+                else
+                    unit->set_move_status_as_false();
+            }
         }
     }
 
-    if (player_1->has_selected_unit)
-    {
-       // std::cout << player_1->selected->x_1 << " " << player_1->selected->y_1 << std::endl;
-       // std::cout << player_1->selected->get_position().x << " " << player_1->selected->get_position().y << std::endl;
-    }
 }
 
 void game::draw()
 {
-    // std::cout << "draw_attempt" << " " << this->player_1->unit->get_position().x << " " << this->player_1->unit->get_position().y << std::endl;  // debug
     window.clear(sf::Color::Black);
     for (auto unit : player_1->units_list)
     {

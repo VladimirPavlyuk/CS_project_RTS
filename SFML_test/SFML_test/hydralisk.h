@@ -1,10 +1,11 @@
 #pragma once
 #include "object.h"
+#include "movable_ground.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
 class hydralisk :
-    public object
+    public movable_ground
 {
 public:
 

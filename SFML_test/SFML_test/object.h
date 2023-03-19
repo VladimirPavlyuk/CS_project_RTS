@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <cmath>
+#include <queue>
 #include "global.h"
 
 
@@ -18,21 +19,31 @@ public:
 
 	float get_radius();
 
-	void move();
-
-	float x_1;
-	float y_1;
-	bool is_moving;
-
 	position get_position();
 
 	int get_number();
 
+	virtual void move();
+
+	virtual bool get_move_status();
+
+	virtual void set_move_status_as_true();
+
+	virtual void set_move_status_as_false();
+
+	virtual float get_x_1();
+
+	virtual float get_y_1();  // Спросить!
+
+	virtual void set_x_1(float new_x_1);
+
+	virtual void set_y_1(float new_y_1);
+
+	std::queue<sf::Vector2i> move_order_queue;
+
 protected:
 
 	position current_position;
-
-	float v;
 
 	float radius;
 

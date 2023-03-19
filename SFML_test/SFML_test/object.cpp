@@ -3,11 +3,8 @@
 object::object(float x_spawn, float y_spawn)
 {
 	{
-		is_moving = false;
 		current_position.x = x_spawn;
 		current_position.y = y_spawn;
-		x_1 = current_position.x;
-		y_1 = current_position.y;
 	}
 }
 
@@ -24,38 +21,6 @@ float object::get_radius()
 	return radius;
 }
 ;
- 
-void object::move()
-{
-	if (check_range(x_1, y_1) > 0.01)
-	{
-		//std::cout << "started moving" << std::endl;  // debug
-		float v_x, v_y, d_x, d_y;
-		v_x = floor((v * (x_1 - current_position.x) / check_range(x_1, y_1)) * 100) / 100;
-		v_y = floor((v * (y_1 - current_position.y) / check_range(x_1, y_1)) * 100) / 100;
-		d_x = v_x * d_t_l;
-		d_y = v_y * d_t_l;
-
-		//std::cout << "x_1, y_1 " << x_1 << " " << y_1 << std::endl;  // debug
-		//std::cout << "range " << check_range(x_1, y_1) << std::endl;  // debug
-		//std::cout << "v " << v << std::endl;  // debug
-		//std::cout << "v " << v_x << " " << v_y << std::endl;  // debug
-		//std::cout << "d " << d_x << " " << d_y << std::endl;  // debug
-
-		if (abs(x_1 - current_position.x) < d_x)
-			current_position.x = x_1;
-		else
-			current_position.x += d_x;
-
-		if (abs(y_1 - current_position.y) < d_y)
-			current_position.y = y_1;
-		else
-			current_position.y += d_y;
-
-		if (check_range(x_1, y_1) <= 0.01)
-			is_moving = false;
-	}
-}
 
 position object::get_position()
 {
@@ -67,3 +32,37 @@ int object::get_number()
 	return number;
 }
 
+void object::move()
+{
+}
+
+bool object::get_move_status()
+{
+	return true;
+}
+
+void object::set_move_status_as_true()
+{
+}
+
+void object::set_move_status_as_false()
+{
+}
+
+float object::get_x_1()
+{
+	return current_position.x;
+}
+
+float object::get_y_1()  // Спросить!
+{
+	return current_position.y;
+}
+
+void object::set_x_1(float new_x_1)
+{
+}
+
+void object::set_y_1(float new_y_1)
+{
+}

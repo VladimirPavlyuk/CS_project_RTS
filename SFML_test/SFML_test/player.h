@@ -16,7 +16,7 @@ public:
 
 	void spawn_unit(int number, position spawn_position);
 
-	bool has_selected_unit_check();	
+	bool has_selected_unit_check();
 
 	object* unit;
 

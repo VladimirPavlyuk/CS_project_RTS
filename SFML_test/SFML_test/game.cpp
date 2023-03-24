@@ -5,6 +5,9 @@
 #include "hydralisk.h"
 #include "scenario.h"
 
+using std::cout;
+using std::endl;
+
 void game::end_run()
 {
     this->is_running = false;
@@ -23,19 +26,8 @@ int game::check_status()
         return 0;
 }
 
-game::game() : is_running(true), player_1(new player), window(sf::VideoMode(800, 600), "Game_window"), time_logical(0)
+game::game() : is_running(true), player_1(new player), window(sf::VideoMode(window_size.x, window_size.y), "Game_window"), time_logical(0)
 {
-    for (auto unit : initial_units)
-    {
-        if (unit.number == 1)
-        {
-            player_1->units_list.push_back(new zergling(unit.spawn_position.x, unit.spawn_position.y));
-        }
-        else if (unit.number == 2)
-        {
-            player_1->units_list.push_back(new hydralisk(unit.spawn_position.x, unit.spawn_position.y));
-        }
-    }
 }
 
 game::~game()
@@ -45,89 +37,118 @@ game::~game()
     delete player_1;
 }
 
-void game::events()
+void game::events()  // Events loop
 {
-    sf::Vector2i mouse_position;
+    sf::Vector2i mouse_position_window;
+
+    sf::Vector2f mouse_position_world;
 
     sf::Event event;
 
-    // while there are pending events...
-    while (window.pollEvent(event))
-    {
-        // check the type of the event...
-        
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            {
-                mouse_position = sf::Mouse::getPosition(window);
-                for (auto unit : player_1->units_list)
-                {   
-                    if (unit->get_position().x - unit->get_radius() <= mouse_position.x <= unit->get_position().x + unit->get_radius() and
-                        unit->get_position().y - unit->get_radius() <= mouse_position.y <= unit->get_position().y + unit->get_radius())
-                    {
-                        if (unit->check_range(mouse_position.x, mouse_position.y) <= unit->get_radius())
-                        {
-                            player_1->selected = unit;
-                            player_1->has_selected_unit = true;
-                        }
-                    }
-                }
+    while (window.pollEvent(event))  // External events (controller)
+    {  
+         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))  // Unit selection
+         {
+             mouse_position_window = sf::Mouse::getPosition(window);
+             mouse_position_world = window.mapPixelToCoords(mouse_position_window);
+             for (auto unit : player_1->units_list)
+             {   
+                 if (unit->get_position().x - unit->get_radius() <= mouse_position_world.x and mouse_position_world.x <= unit->get_position().x + unit->get_radius() and
+                     unit->get_position().y - unit->get_radius() <= mouse_position_world.y and mouse_position_world.y  <= unit->get_position().y + unit->get_radius())
+                 {
+                     if (unit->square_range(mouse_position_world.x, mouse_position_world.y) <= unit->get_radius() * unit->get_radius())
+                     {
+                         player_1->selected = unit;
+                         player_1->set_selection_status_as_true();
+                     }
+                 }
+                 
+             }
+             cout << endl;
 
-            }
-            if (player_1->has_selected_unit == true and sf::Mouse::isButtonPressed(sf::Mouse::Right) == true and 
-                sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) == false)
-            {
-                mouse_position = sf::Mouse::getPosition(window);
-                player_1->selected->set_x_1(mouse_position.x);
-                player_1->selected->set_y_1(mouse_position.y);
-                player_1->selected->set_move_status_as_true();
-                while (player_1->selected->move_order_queue.empty() == 0)
-                {
-                    player_1->selected->move_order_queue.pop();
-                }
-            }
-            if (player_1->has_selected_unit == true and player_1->selected->get_move_status()
-                and sf::Mouse::isButtonPressed(sf::Mouse::Right) == true and sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
-            {
-                std::cout << "LOL" << std::endl;  // debug
-                mouse_position = sf::Mouse::getPosition(window);
-                player_1->selected->move_order_queue.push(mouse_position);
-            }
+         }
+         if (player_1->has_selected_unit_check() and sf::Mouse::isButtonPressed(sf::Mouse::Right) == true and  // Move order
+             sf::Keyboard::isKeyPressed(sf::Keyboard::LShift) == false)
+         {
+             mouse_position_window = sf::Mouse::getPosition(window);
+             mouse_position_world = window.mapPixelToCoords(mouse_position_window);
+             player_1->selected->set_x_1(mouse_position_world.x);
+             player_1->selected->set_y_1(mouse_position_world.y);
+             player_1->selected->set_move_status_as_true();
+             while (player_1->selected->move_order_queue.empty() == 0)
+             {
+                 player_1->selected->move_order_queue.pop();
+             }
+         }
+         if (player_1->has_selected_unit_check() and player_1->selected->get_move_status()  // Shift move order
+             and sf::Mouse::isButtonPressed(sf::Mouse::Right) == true and sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+         {
+             mouse_position_window = sf::Mouse::getPosition(window);
+             mouse_position_world = window.mapPixelToCoords(mouse_position_window);
+             player_1->selected->move_order_queue.push(mouse_position_world);
+         }
         
-        // window closed
-        if (event.type == sf::Event::Closed)
+
+            // Camera control
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))  // with keyboard
+                player_1->camera_position.y -= camera_speed;
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+                player_1->camera_position.y += camera_speed;
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+                player_1->camera_position.x -= camera_speed;
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+                player_1->camera_position.x += camera_speed;
+
+            mouse_position_window = sf::Mouse::getPosition(window);  // with mouse
+            if (mouse_position_window.x <= window_size.x / 70 or mouse_position_window.x >= window_size.x / 70 * 69
+                or mouse_position_window.y <= window_size.y / 70 or mouse_position_window.y >= window_size.y / 70 * 69)
+            {
+                player_1->set_camera_control_with_mouse_as_true();
+            }
+            else
+            {
+                player_1->set_camera_control_with_mouse_as_false();
+            }
+
+        if (event.type == sf::Event::Closed)  // Close game
         {
             this->is_running = false;
             window.close();
         }
     }
 
-    for (auto unit : player_1->units_list)
+    for (auto unit : player_1->units_list)  // Orders execution
     {
-        if (unit->get_move_status() == true)
+        if (unit->get_move_status() == true)  // Move execution
         {
             unit->move(); 
-            std::cout << unit->get_x_1() << " " << unit->get_y_1() << std::endl;  // debug
-            if (unit->check_range(unit->get_x_1(), unit->get_y_1()) <= 0.01)
+            if (unit->check_range(unit->get_x_1(), unit->get_y_1()) <= 0.01)  // Shift move execution
             {
                 if (unit->move_order_queue.empty() == 0)
                 {
-                    std::cout << "1" << std::endl;  // debug
-                    sf::Vector2i new_order = unit->move_order_queue.front();
+                    sf::Vector2f new_order = unit->move_order_queue.front();
                     unit->move_order_queue.pop();
                     unit->set_x_1(new_order.x);
                     unit->set_y_1(new_order.y);
-                    std::cout << "2" << std::endl;  // debug
                 }
                 else
                     unit->set_move_status_as_false();
             }
         }
     }
+    if (player_1->get_camera_control_with_mouse_as_true())
+    {
+        player_1->move_camera(sf::Mouse::getPosition(window));
+    }
 
 }
 
-void game::draw()
+void game::draw()  // (view)
 {
+
+    player_1->camera.setCenter(player_1->camera_position.x, player_1->camera_position.y);
+    window.setView(player_1->camera);
     window.clear(sf::Color::Black);
     for (auto unit : player_1->units_list)
     {

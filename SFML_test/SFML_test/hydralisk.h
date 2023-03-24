@@ -15,7 +15,7 @@ public:
 
 private:
 
-    const float V = 50;
+    static float V_initial;
 };
 
 

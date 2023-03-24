@@ -15,6 +15,6 @@ public:
 
 private:
 
-    const float V = 100;
+    static float V_initial;
 };
 

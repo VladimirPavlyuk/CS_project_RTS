@@ -16,6 +16,10 @@ float object::check_range(float x, float y)
 {
     return( sqrt( ((x - current_position.x) * (x - current_position.x)) + ((y - current_position.y) * (y - current_position.y)) ) );
 }
+float object::square_range(float x, float y)
+{
+	return ((x - current_position.x) * (x - current_position.x)) + ((y - current_position.y) * (y - current_position.y));
+}
 float object::get_radius()
 {
 	return radius;

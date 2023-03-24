@@ -20,7 +20,7 @@ int main()
 		//	std::cout << current_game.time_logical << std::endl;  // debug
 		while (current_game.time_reset.getElapsedTime().asMilliseconds() < 1)
 		{ }
-		//std::cout << current_game.time_logical << " " << current_game.time_real.getElapsedTime().asMilliseconds() << " "
+		//std::cout << current_game.time_logical << " " << current_game.time_real.getElapsedTime().asMilliseconds() << " "  // Debug
 		//	<< current_game.time_reset.getElapsedTime().asMicroseconds() << std::endl;
 		current_game.time_logical ++;
 	}

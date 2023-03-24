@@ -17,6 +17,8 @@ public:
 
 	float check_range(float x, float y);
 
+	float square_range(float x, float y);
+
 	float get_radius();
 
 	position get_position();
@@ -39,7 +41,7 @@ public:
 
 	virtual void set_y_1(float new_y_1);
 
-	std::queue<sf::Vector2i> move_order_queue;
+	std::queue<sf::Vector2f> move_order_queue;
 
 protected:
 

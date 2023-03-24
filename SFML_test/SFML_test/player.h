@@ -2,6 +2,10 @@
 #include <list>
 #include "object.h"
 #include "global.h"
+#include "scenario.h"
+#include "zergling.h"
+#include "hydralisk.h"
+#include "cmath"
 
 
 class player
@@ -9,14 +13,23 @@ class player
 
 public:
 
-
 	player();
 
 	~player();
 
+	bool get_camera_control_with_mouse_as_true();
+
+	void set_camera_control_with_mouse_as_true();
+
+	void set_camera_control_with_mouse_as_false();
+
+	void move_camera(sf::Vector2i mouse_position);
+
 	void spawn_unit(int number, position spawn_position);
 
 	bool has_selected_unit_check();
+
+	void set_selection_status_as_true();
 
 	object* unit;
 
@@ -24,7 +37,9 @@ public:
 
 	object* selected;
 
-	char has_selected_unit;
+	sf::View camera;
+
+	position camera_position;
 
 	// char nickname[12];
 
@@ -41,5 +56,11 @@ public:
 	// int to_build[120];  // уточнить число
 
 	//std::list<unit*>::iterator to_destroy[120] = { player_units.end() };
+
+private:
+
+	bool camera_control_with_mouse;
+
+	char has_selected_unit;
 
 };

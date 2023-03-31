@@ -1,9 +1,9 @@
-#include "hydralisk.h"
-#include "object.h"
+#include "Hydralisk.h"
+#include "Object.h"
 
-float hydralisk::V_initial = 100;
+float Hydralisk::V_initial = 100;
 
-hydralisk::hydralisk(float x_spawn, float y_spawn) : movable_ground(x_spawn, y_spawn)
+Hydralisk::Hydralisk(float x_spawn, float y_spawn) : Movable_ground(x_spawn, y_spawn)
 {
 	v = V_initial;
 	number = 2;

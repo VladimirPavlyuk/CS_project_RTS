@@ -4,16 +4,16 @@
 #include <SFML/Window.hpp>
 #include <cmath>
 #include <queue>
-#include "global.h"
+#include "Global.h"
 
 
-class object
+class Object
 {
 public:
 
-	object(float x_spawn, float y_spawn);
+	Object(float x_spawn, float y_spawn);
 
-	~object();
+	~Object();
 
 	float check_range(float x, float y);
 

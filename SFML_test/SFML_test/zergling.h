@@ -1,16 +1,16 @@
 #pragma once
-#include "unit.h"
-#include "object.h"
-#include "movable_ground.h"
+//#include "Unit.h"
+#include "Object.h"
+#include "Movable_ground.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-class zergling :
-    public movable_ground
+class Zergling :
+    public Movable_ground//, Unit
 {
 public:
 
-    zergling(float x_spawn, float y_spawn);
+    Zergling(float x_spawn, float y_spawn/*, char Side*/);
 
     sf::CircleShape zergling_model;
 

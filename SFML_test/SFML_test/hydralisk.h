@@ -1,15 +1,15 @@
 #pragma once
-#include "object.h"
-#include "movable_ground.h"
+#include "Object.h"
+#include "Movable_ground.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-class hydralisk :
-    public movable_ground
+class Hydralisk :
+    public Movable_ground
 {
 public:
 
-    hydralisk(float x_spawn, float y_spawn);
+    Hydralisk(float x_spawn, float y_spawn);
 
     sf::CircleShape hydralisk_model;
 

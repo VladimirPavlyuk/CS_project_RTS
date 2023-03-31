@@ -1,12 +1,12 @@
 #pragma once
-#include "object.h"
+#include "Object.h"
 
-class movable_ground :
-    public object
+class Movable_ground :
+    public Object
 {
 public:
 
-    movable_ground(float x_spawn, float y_spawn);
+    Movable_ground(float x_spawn, float y_spawn);
 
     void move();
 

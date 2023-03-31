@@ -3,9 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <cmath>
-#include "player.h"
+#include "Player.h"
 
-class game
+class Game
 {
 
 
@@ -14,9 +14,9 @@ public:
 
 	int check_status();
 
-	game();
+	Game();
 
-	~game();
+	~Game();
 
 	void events();
 
@@ -26,7 +26,7 @@ public:
 
 	void start_run();
 
-	player* player_1;
+	Player* player_1;
 
 	sf::RenderWindow window;
 

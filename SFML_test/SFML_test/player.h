@@ -1,21 +1,21 @@
 #pragma once
 #include <list>
-#include "object.h"
-#include "global.h"
-#include "scenario.h"
-#include "zergling.h"
-#include "hydralisk.h"
+#include "Object.h"
+#include "Global.h"
+#include "Scenario.h"
+#include "Zergling.h"
+#include "Hydralisk.h"
 #include "cmath"
 
 
-class player
+class Player
 {
 
 public:
 
-	player(char Side);
+	Player(char Side, char Race);
 
-	~player();
+	~Player();
 
 	bool get_camera_control_with_mouse_as_true();
 
@@ -31,17 +31,17 @@ public:
 
 	void set_selection_status_as_true();
 
-	object* unit;
+	Object* unit;
 
-	std::list<object*> units_list_1;
+	std::list<Object*> units_list_1;
 
-	std::list<object*> units_list_2;
+	std::list<Object*> units_list_2;
 
-	std::list<object*> ally_units_list;
+	std::list<Object*> ally_units_list;
 
-	std::list<object*> enemy_units_list;
+	std::list<Object*> enemy_units_list;
 
-	object* selected;
+	Object* selected;
 
 	sf::View camera;
 
@@ -49,9 +49,9 @@ public:
 
 	// char nickname[12];
 
-	// char race;
+	const char race;
 
-	char side;
+	const char side;
 
 	// char colour;
 

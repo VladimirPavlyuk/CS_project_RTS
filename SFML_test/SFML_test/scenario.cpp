@@ -1,4 +1,4 @@
-#include "scenario.h"
+#include "Scenario.h"
 #include "vector"
 
 initial_unit u_1_1 = { 1, 100, 100 };

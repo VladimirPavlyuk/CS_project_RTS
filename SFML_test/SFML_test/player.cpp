@@ -1,6 +1,6 @@
-#include "player.h"
+#include "Player.h"
 
-player::player(char Side): side(Side)
+Player::Player(char Side, char Race): side(Side), race(Race)
 {
 	camera_position = start_camera_position_p_1;
 	camera.setCenter(sf::Vector2f(camera_position.x, camera_position.y));
@@ -12,11 +12,11 @@ player::player(char Side): side(Side)
     {
         if (unit.number == 1)
         {
-            units_list_1.push_back(new zergling(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_1.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y));
         }
         else if (unit.number == 2)
         {
-            units_list_1.push_back(new hydralisk(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_1.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y));
         }
     }
 
@@ -24,11 +24,11 @@ player::player(char Side): side(Side)
     {
         if (unit.number == 1)
         {
-            units_list_2.push_back(new zergling(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_2.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y));
         }
         else if (unit.number == 2)
         {
-            units_list_2.push_back(new hydralisk(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_2.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y));
         }
     }
 
@@ -48,26 +48,26 @@ player::player(char Side): side(Side)
 
 }
 
-player::~player()
+Player::~Player()
 {
 }
 
-bool player::get_camera_control_with_mouse_as_true()
+bool Player::get_camera_control_with_mouse_as_true()
 {
     return camera_control_with_mouse;
 }
 
-void player::set_camera_control_with_mouse_as_true()
+void Player::set_camera_control_with_mouse_as_true()
 {
     camera_control_with_mouse = true;
 }
 
-void player::set_camera_control_with_mouse_as_false()
+void Player::set_camera_control_with_mouse_as_false()
 {
     camera_control_with_mouse = false;
 }
 
-void player::move_camera(sf::Vector2i mouse_position)
+void Player::move_camera(sf::Vector2i mouse_position)
 {
     float r_x = mouse_position.x - window_size.x / 2;
     float r_y = mouse_position.y - window_size.y / 2;
@@ -80,12 +80,12 @@ void player::move_camera(sf::Vector2i mouse_position)
     camera_position.y += d_y;
 }
 
-bool player::has_selected_unit_check()
+bool Player::has_selected_unit_check()
 {
 	return has_selected_unit;
 }
 
-void player::set_selection_status_as_true()
+void Player::set_selection_status_as_true()
 {
     has_selected_unit = true;
 }

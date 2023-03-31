@@ -1,13 +1,13 @@
-#include "movable_ground.h"
+#include "Movable_ground.h"
 
-movable_ground::movable_ground(float x_spawn, float y_spawn) : object(x_spawn, y_spawn)
+Movable_ground::Movable_ground(float x_spawn, float y_spawn) : Object(x_spawn, y_spawn)
 {
 	is_moving = false;
 	x_1 = current_position.x;
 	y_1 = current_position.y;
 }
 
-void movable_ground::move()
+void Movable_ground::move()
 {
 
 	if (check_range(x_1, y_1) > 0.01)
@@ -30,37 +30,37 @@ void movable_ground::move()
 	}
 }
 
-bool movable_ground::get_move_status()
+bool Movable_ground::get_move_status()
 {
 	return is_moving;
 }
 
-void movable_ground::set_move_status_as_true()
+void Movable_ground::set_move_status_as_true()
 {
 	is_moving = true;
 }
 
-void movable_ground::set_move_status_as_false()
+void Movable_ground::set_move_status_as_false()
 {
 	is_moving = false;
 }
 
-float movable_ground::get_x_1()
+float Movable_ground::get_x_1()
 {
 	return x_1;
 }
 
-float movable_ground::get_y_1()
+float Movable_ground::get_y_1()
 {
 	return y_1;
 }
 
-void movable_ground::set_x_1(float new_x_1)
+void Movable_ground::set_x_1(float new_x_1)
 {
 	x_1 = new_x_1;
 }
 
-void movable_ground::set_y_1(float new_y_1)
+void Movable_ground::set_y_1(float new_y_1)
 {
 	y_1 = new_y_1;
 }

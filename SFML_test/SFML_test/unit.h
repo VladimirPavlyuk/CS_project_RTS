@@ -1,28 +1,22 @@
 #pragma once
 
-class unit
+class Unit
 {
 public:
+	Unit(char Side);
 
-	unit();
-
-	~unit();
+	~Unit();
 
 	char get_side();
 
-	char get_race();
+	//char get_race();
 
 
 protected:
 
-	char side;
+	const char side;
 
-	char race;
-
-	int max_HP;
-
-	int current_HP;
-
+	//const char race;
 
 };
 

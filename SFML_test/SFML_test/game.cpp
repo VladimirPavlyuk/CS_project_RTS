@@ -1,24 +1,24 @@
-#include "game.h"
-#include "global.h"
-#include "player.h"
-#include "zergling.h"
-#include "hydralisk.h"
-#include "scenario.h"
+#include "Game.h"
+#include "Global.h"
+#include "Player.h"
+#include "Zergling.h"
+#include "Hydralisk.h"
+#include "Scenario.h"
 
 using std::cout;
 using std::endl;
 
-void game::end_run()
+void Game::end_run()
 {
     this->is_running = false;
 }
 
-void game::start_run()
+void Game::start_run()
 {
     this->is_running = true;
 }
 
-int game::check_status()
+int Game::check_status()
 {
     if (is_running)
         return 1;
@@ -26,11 +26,11 @@ int game::check_status()
         return 0;
 }
 
-game::game() : is_running(true), player_1(new player(1)), window(sf::VideoMode(window_size.x, window_size.y), "Game_window"), time_logical(0)
+Game::Game() : is_running(true), player_1(new Player(1, 1)), window(sf::VideoMode(window_size.x, window_size.y), "Game_window"), time_logical(0)
 {
 }
 
-game::~game()
+Game::~Game()
 {
     player_1->ally_units_list.clear();
     player_1->enemy_units_list.clear();
@@ -38,7 +38,7 @@ game::~game()
     delete player_1;
 }
 
-void game::events()  // Events loop
+void Game::events()  // Events loop
 {
     sf::Vector2i mouse_position_window;
 
@@ -145,7 +145,7 @@ void game::events()  // Events loop
 
 }
 
-void game::draw()  // (view)
+void Game::draw()  // (view)
 {
 
     player_1->camera.setCenter(player_1->camera_position.x, player_1->camera_position.y);

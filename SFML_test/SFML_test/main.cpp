@@ -2,13 +2,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>	
 #include <cmath>
-#include "game.h"
+#include "Game.h"
 // Волновой алгоритм
 // Поис путей, перграды из многоугольников
 // z-order
 int main()
 {
-	game current_game;
+	Game current_game;
 	while (current_game.check_status()) //
 	{
 		current_game.time_reset.restart();

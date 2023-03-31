@@ -1,11 +1,15 @@
-#include "unit.h"
+#include "Unit.h"
 
-char unit::get_side()
+Unit::Unit(char Side): side(Side)
+{
+}
+
+char Unit::get_side()
 {
     return side;
 }
 
-char unit::get_race()
-{
-    return race;
-}
+//char Unit::get_race()
+//{
+//    return race;
+//}

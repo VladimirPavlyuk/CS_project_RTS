@@ -1,6 +1,6 @@
 #pragma once
-#include "global.h"
-#include "object.h"
+#include "Global.h"
+#include "Object.h"
 #include "vector"
 
 

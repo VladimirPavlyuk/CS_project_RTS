@@ -13,7 +13,7 @@ class player
 
 public:
 
-	player();
+	player(char Side);
 
 	~player();
 
@@ -33,7 +33,13 @@ public:
 
 	object* unit;
 
-	std::list<object*> units_list;
+	std::list<object*> units_list_1;
+
+	std::list<object*> units_list_2;
+
+	std::list<object*> ally_units_list;
+
+	std::list<object*> enemy_units_list;
 
 	object* selected;
 
@@ -45,7 +51,7 @@ public:
 
 	// char race;
 
-	// char side;
+	char side;
 
 	// char colour;
 

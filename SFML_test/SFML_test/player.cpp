@@ -1,6 +1,6 @@
 #include "player.h"
 
-player::player()
+player::player(char Side): side(Side)
 {
 	camera_position = start_camera_position_p_1;
 	camera.setCenter(sf::Vector2f(camera_position.x, camera_position.y));
@@ -8,17 +8,44 @@ player::player()
 
     camera_control_with_mouse = false;
 
-    for (auto unit : initial_units)
+    for (auto unit : initial_units_1)
     {
         if (unit.number == 1)
         {
-            units_list.push_back(new zergling(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_1.push_back(new zergling(unit.spawn_position.x, unit.spawn_position.y));
         }
         else if (unit.number == 2)
         {
-            units_list.push_back(new hydralisk(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_1.push_back(new hydralisk(unit.spawn_position.x, unit.spawn_position.y));
         }
     }
+
+    for (auto unit : initial_units_2)
+    {
+        if (unit.number == 1)
+        {
+            units_list_2.push_back(new zergling(unit.spawn_position.x, unit.spawn_position.y));
+        }
+        else if (unit.number == 2)
+        {
+            units_list_2.push_back(new hydralisk(unit.spawn_position.x, unit.spawn_position.y));
+        }
+    }
+
+    if (side == 1)
+    {
+        ally_units_list  = std::move(units_list_1);
+
+        enemy_units_list = std::move(units_list_2);
+    }
+
+    else
+    {
+        ally_units_list  = std::move(units_list_2);
+
+        enemy_units_list = std::move(units_list_1);
+    };
+
 }
 
 player::~player()

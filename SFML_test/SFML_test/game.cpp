@@ -26,13 +26,14 @@ int game::check_status()
         return 0;
 }
 
-game::game() : is_running(true), player_1(new player), window(sf::VideoMode(window_size.x, window_size.y), "Game_window"), time_logical(0)
+game::game() : is_running(true), player_1(new player(1)), window(sf::VideoMode(window_size.x, window_size.y), "Game_window"), time_logical(0)
 {
 }
 
 game::~game()
 {
-    player_1->units_list.clear();
+    player_1->ally_units_list.clear();
+    player_1->enemy_units_list.clear();
     delete player_1->selected;
     delete player_1;
 }
@@ -51,7 +52,7 @@ void game::events()  // Events loop
          {
              mouse_position_window = sf::Mouse::getPosition(window);
              mouse_position_world = window.mapPixelToCoords(mouse_position_window);
-             for (auto unit : player_1->units_list)
+             for (auto unit : player_1->ally_units_list)
              {   
                  if (unit->get_position().x - unit->get_radius() <= mouse_position_world.x and mouse_position_world.x <= unit->get_position().x + unit->get_radius() and
                      unit->get_position().y - unit->get_radius() <= mouse_position_world.y and mouse_position_world.y  <= unit->get_position().y + unit->get_radius())
@@ -118,7 +119,7 @@ void game::events()  // Events loop
         }
     }
 
-    for (auto unit : player_1->units_list)  // Orders execution
+    for (auto unit : player_1->ally_units_list)  // Orders execution
     {
         if (unit->get_move_status() == true)  // Move execution
         {
@@ -150,19 +151,42 @@ void game::draw()  // (view)
     player_1->camera.setCenter(player_1->camera_position.x, player_1->camera_position.y);
     window.setView(player_1->camera);
     window.clear(sf::Color::Black);
-    for (auto unit : player_1->units_list)
+
+    sf::CircleShape zergling_ally_model(10);
+    zergling_ally_model.setFillColor(sf::Color::Green);
+    sf::CircleShape hydralisk_ally_model(30);
+    hydralisk_ally_model.setFillColor(sf::Color::Green);
+
+    sf::CircleShape zergling_enemy_model(10);
+    zergling_enemy_model.setFillColor(sf::Color::Red);
+    sf::CircleShape hydralisk_enemy_model(30);
+    hydralisk_enemy_model.setFillColor(sf::Color::Red);
+
+    for (auto unit : player_1->ally_units_list)
     {
         if (unit->get_number() == 1)
         {
-            sf::CircleShape zergling_model(10);
-            zergling_model.setPosition(unit->get_position().x - unit->get_radius(), unit->get_position().y - unit->get_radius());
-            window.draw(zergling_model);
+            zergling_ally_model.setPosition(unit->get_position().x - unit->get_radius(), unit->get_position().y - unit->get_radius());
+            window.draw(zergling_ally_model);
         }
         else if (unit->get_number() == 2)
         {
-            sf::CircleShape hydralisk_model(30);
-            hydralisk_model.setPosition(unit->get_position().x - unit->get_radius(), unit->get_position().y - unit->get_radius());
-            window.draw(hydralisk_model);
+            hydralisk_ally_model.setPosition(unit->get_position().x - unit->get_radius(), unit->get_position().y - unit->get_radius());
+            window.draw(hydralisk_ally_model);
+        }
+    }
+
+    for (auto unit : player_1->enemy_units_list)
+    {
+        if (unit->get_number() == 1)
+        {
+            zergling_enemy_model.setPosition(unit->get_position().x - unit->get_radius(), unit->get_position().y - unit->get_radius());
+            window.draw(zergling_enemy_model);
+        }
+        else if (unit->get_number() == 2)
+        {
+            hydralisk_enemy_model.setPosition(unit->get_position().x - unit->get_radius(), unit->get_position().y - unit->get_radius());
+            window.draw(hydralisk_enemy_model);
         }
     }
     window.display();

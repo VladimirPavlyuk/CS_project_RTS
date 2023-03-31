@@ -1,3 +1,4 @@
+#include "unit.h"
 #include "zergling.h"
 #include "movable_ground.h"
 #include "object.h"

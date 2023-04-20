@@ -27,13 +27,17 @@ public:
 
 	void spawn_unit(int number, position spawn_position);
 
-	bool has_selected_unit_check();
+	bool check_selection_status();
 
 	void set_selection_status_as_true();
+
+	bool check_if_unit_is_not_already_in_the_list(object* object_);
 
 	object* unit;
 
 	std::list<object*> units_list;
+
+	std::list<object*> setected_objects; // selected objects
 
 	object* selected;
 

@@ -1,2 +1,4 @@
-﻿  main.cpp
+﻿  game.cpp
+C:\Users\User\source\repos\CS_project_StarCraft-units\SFML_test\SFML_test\game.cpp(31,103): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+C:\Users\User\source\repos\CS_project_StarCraft-units\SFML_test\SFML_test\game.cpp(31,88): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
   SFML_test.vcxproj -> C:\Users\User\source\repos\CS_project_StarCraft-units\SFML_test\x64\Debug\SFML_test.exe

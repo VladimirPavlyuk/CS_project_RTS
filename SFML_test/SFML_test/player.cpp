@@ -53,12 +53,25 @@ void player::move_camera(sf::Vector2i mouse_position)
     camera_position.y += d_y;
 }
 
-bool player::has_selected_unit_check()
+bool player::check_selection_status()
 {
-	return has_selected_unit;
+    if (setected_objects.size() != 0)
+        return true;
+    else
+        return false;
 }
 
 void player::set_selection_status_as_true()
 {
     has_selected_unit = true;
+}
+
+bool player::check_if_unit_is_not_already_in_the_list(object * object_)
+{
+    for (auto o : setected_objects)
+    {
+        if (o == object_)
+            return false;
+    }
+    return true;
 }

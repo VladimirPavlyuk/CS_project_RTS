@@ -26,6 +26,8 @@ public:
 
 	void start_run();
 
+	void move_order(sf::Vector2f move_to);
+
 	player* player_1;
 
 	sf::RenderWindow window;

@@ -111,7 +111,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -130,7 +130,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -138,6 +138,7 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="hydralisk.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="movable_ground.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="global.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="hydralisk.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="movable_ground.h" />
     <ClInclude Include="object.h" />
     <ClInclude Include="player.h" />

@@ -11,7 +11,7 @@ class Object
 {
 public:
 
-	Object(float x_spawn, float y_spawn);
+	Object(float x_spawn, float y_spawn, char Side);
 
 	~Object();
 
@@ -24,6 +24,10 @@ public:
 	position get_position();
 
 	int get_number();
+
+	char get_side() const;
+
+	void take_damage(int value);
 
 	virtual void move();
 
@@ -50,5 +54,11 @@ protected:
 	float radius;
 
 	int number;
+
+	char side;
+
+	int Max_HP;
+
+	int Current_HP;
 };
 

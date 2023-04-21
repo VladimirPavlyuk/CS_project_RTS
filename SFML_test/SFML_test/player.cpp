@@ -12,11 +12,11 @@ Player::Player(char Side, char Race): side(Side), race(Race)
     {
         if (unit.number == 1)
         {
-            units_list_1.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_1.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y, 1));
         }
         else if (unit.number == 2)
         {
-            units_list_1.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_1.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y, 1));
         }
     }
 
@@ -24,11 +24,11 @@ Player::Player(char Side, char Race): side(Side), race(Race)
     {
         if (unit.number == 1)
         {
-            units_list_2.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_2.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y, 2));
         }
         else if (unit.number == 2)
         {
-            units_list_2.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y));
+            units_list_2.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y, 2));
         }
     }
 
@@ -51,6 +51,11 @@ Player::Player(char Side, char Race): side(Side), race(Race)
 Player::~Player()
 {
 }
+
+//void Player::initialize_vector_of_lists()
+//{
+//    vector_of_lists.resize(2);
+//}
 
 bool Player::get_camera_control_with_mouse_as_true()
 {

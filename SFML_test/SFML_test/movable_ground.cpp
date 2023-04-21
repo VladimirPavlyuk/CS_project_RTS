@@ -1,6 +1,6 @@
 #include "Movable_ground.h"
 
-Movable_ground::Movable_ground(float x_spawn, float y_spawn) : Object(x_spawn, y_spawn)
+Movable_ground::Movable_ground(float x_spawn, float y_spawn, char Side) : Object(x_spawn, y_spawn, Side)
 {
 	is_moving = false;
 	x_1 = current_position.x;

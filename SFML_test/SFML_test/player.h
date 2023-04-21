@@ -31,6 +31,8 @@ public:
 
 	void set_selection_status_as_true();
 
+	//static void initialize_vector_of_lists();
+
 	Object* unit;
 
 	std::list<Object*> units_list_1;
@@ -62,6 +64,12 @@ public:
 	// int to_build[120];  // уточнить число
 
 	//std::list<unit*>::iterator to_destroy[120] = { player_units.end() };
+
+//protected:
+
+	//static int number_of_sizes;
+
+	//static std::vector <std::list<Object*>> vector_of_lists;
 
 private:
 

@@ -1,10 +1,11 @@
 #include "Object.h"
 
-Object::Object(float x_spawn, float y_spawn)
+Object::Object(float x_spawn, float y_spawn, char Side)
 {
 	{
 		current_position.x = x_spawn;
 		current_position.y = y_spawn;
+		side = Side;
 	}
 }
 
@@ -24,7 +25,16 @@ float Object::get_radius()
 {
 	return radius;
 }
-;
+
+char Object::get_side() const
+{
+	return side;
+}
+
+void Object::take_damage(int value)
+{
+	Current_HP -= value; 
+}
 
 position Object::get_position()
 {

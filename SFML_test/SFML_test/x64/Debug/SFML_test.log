@@ -1,4 +1,7 @@
-﻿  Unit.cpp
-  Zergling.cpp
+﻿  Game.cpp
+C:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Game.cpp(29,109): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+C:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Game.cpp(29,94): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+  Main.cpp
+  Player.cpp
   Создание кода...
   SFML_test.vcxproj -> C:\repositories\CS_project_StarCraft-units\SFML_test\x64\Debug\SFML_test.exe

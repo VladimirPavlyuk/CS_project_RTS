@@ -1,5 +1,4 @@
 #pragma once
-#include "Object.h"
 #include "Movable_ground.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -9,7 +8,7 @@ class Hydralisk :
 {
 public:
 
-    Hydralisk(float x_spawn, float y_spawn);
+    Hydralisk(float x_spawn, float y_spawn, char Side);
 
     sf::CircleShape hydralisk_model;
 

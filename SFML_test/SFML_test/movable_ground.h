@@ -6,7 +6,7 @@ class Movable_ground :
 {
 public:
 
-    Movable_ground(float x_spawn, float y_spawn);
+    Movable_ground(float x_spawn, float y_spawn, char Side);
 
     void move();
 

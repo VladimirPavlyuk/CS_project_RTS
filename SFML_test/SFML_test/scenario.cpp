@@ -7,7 +7,7 @@ initial_unit u_1_1 = { 1, 100, 100 };
 initial_unit u_1_2 = { 1, 150, 150 };
 initial_unit u_1_3 = { 2, 200, 200 };
 
-initial_unit u_2_1 = { 2, 0, 0 };
+initial_unit u_2_1 = { 2, 300, 300 };
 
 
 

@@ -1,4 +1,7 @@
 #include "Player.h"
+using std::cin;
+using std::cout;
+using std::endl;
 
 Player::Player(char Side, char Race): side(Side), race(Race)
 {
@@ -46,7 +49,34 @@ Player::Player(char Side, char Race): side(Side), race(Race)
         enemy_units_list = std::move(units_list_1);
     };
 
+    for (auto unit : initial_units_1)
+    {
+        cout << "." << endl;  // debug
+        if (unit.number == 1)
+        {
+            units_list_1.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y, 1));
+        }
+        else if (unit.number == 2)
+        {
+            units_list_1.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y, 1));
+        }
+    }
+    cout << units_list_1.size() << endl;  // debug
+
+    for (auto unit : initial_units_2)
+    {
+        if (unit.number == 1)
+        {
+            units_list_2.push_back(new Zergling(unit.spawn_position.x, unit.spawn_position.y, 2));
+        }
+        else if (unit.number == 2)
+        {
+            units_list_2.push_back(new Hydralisk(unit.spawn_position.x, unit.spawn_position.y, 2));
+        }
+    }
+    cout << units_list_1.size() << endl;  // debug
 }
+
 
 Player::~Player()
 {
@@ -85,12 +115,25 @@ void Player::move_camera(sf::Vector2i mouse_position)
     camera_position.y += d_y;
 }
 
-bool Player::has_selected_unit_check()
+bool Player::check_selection_status()
 {
-	return has_selected_unit;
+    if (setected_objects.size() != 0)
+        return true;
+    else
+        return false;
 }
 
 void Player::set_selection_status_as_true()
 {
     has_selected_unit = true;
+}
+
+bool Player::check_if_unit_is_not_already_in_the_list(Object* object_)
+{
+    for (auto o : setected_objects)
+    {
+        if (o == object_)
+            return false;
+    }
+    return true;
 }

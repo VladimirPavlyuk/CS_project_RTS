@@ -27,9 +27,11 @@ public:
 
 	void spawn_unit(int number, position spawn_position);
 
-	bool has_selected_unit_check();
+	bool check_selection_status();
 
 	void set_selection_status_as_true();
+
+	bool check_if_unit_is_not_already_in_the_list(Object* object_);
 
 	//static void initialize_vector_of_lists();
 
@@ -42,6 +44,8 @@ public:
 	std::list<Object*> ally_units_list;
 
 	std::list<Object*> enemy_units_list;
+
+	std::list<Object*> setected_objects;
 
 	Object* selected;
 

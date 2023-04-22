@@ -12,6 +12,7 @@ void Movable_ground::move()
 
 	if (check_range(x_1, y_1) > 0.01)
 	{
+		std::cout << "iiii" << std::endl;
 		float v_x, v_y, d_x, d_y;
 		v_x = floor((v * (x_1 - current_position.x) / check_range(x_1, y_1)) * 100) / 100;
 		v_y = floor((v * (y_1 - current_position.y) / check_range(x_1, y_1)) * 100) / 100;

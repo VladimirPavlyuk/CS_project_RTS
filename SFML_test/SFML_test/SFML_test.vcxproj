@@ -135,7 +135,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Attack.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hydralisk.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -148,7 +147,6 @@
     <ClCompile Include="Zergling.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Attack.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Hydralisk.h" />

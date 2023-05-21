@@ -8,21 +8,21 @@ public:
 
     Movable_ground(float x_spawn, float y_spawn, char Side);
 
-    void move();
+    void move() override;
 
     bool get_move_status();
 
-    void set_move_status_as_true();
+    void set_move_status_as_true() override;
 
-    void set_move_status_as_false();
+    void set_move_status_as_false() override;
 
     float get_x_1();
 
     float get_y_1();
 
-    void set_x_1(float new_y_1);
+    void set_x_1(float new_y_1) override;
 
-    void set_y_1(float new_x_1);
+    void set_y_1(float new_x_1) override;
 
     float v;
 

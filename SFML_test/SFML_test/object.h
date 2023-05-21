@@ -19,11 +19,11 @@ public:
 
 	float square_range(float x, float y);
 
-	float get_radius();
+	float get_radius() const;
 
-	position get_position();
+	position get_position() const;
 
-	int get_number();
+	int get_number() const;
 
 	char get_side() const;
 
@@ -31,15 +31,15 @@ public:
 
 	virtual void move();
 
-	virtual bool get_move_status();
+	virtual bool get_move_status() const;
 
 	virtual void set_move_status_as_true();
 
 	virtual void set_move_status_as_false();
 
-	virtual float get_x_1();
+	virtual float get_x_1() const;
 
-	virtual float get_y_1();  // Спросить!
+	virtual float get_y_1() const;  // Спросить!
 
 	virtual void set_x_1(float new_x_1);
 

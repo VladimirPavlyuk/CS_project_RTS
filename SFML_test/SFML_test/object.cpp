@@ -21,7 +21,7 @@ float Object::square_range(float x, float y)
 {
 	return ((x - current_position.x) * (x - current_position.x)) + ((y - current_position.y) * (y - current_position.y));
 }
-float Object::get_radius()
+float Object::get_radius() const
 {
 	return radius;
 }
@@ -36,12 +36,12 @@ void Object::take_damage(int value)
 	Current_HP -= value; 
 }
 
-position Object::get_position()
+position Object::get_position() const
 {
 	return current_position;
 }
 
-int Object::get_number()
+int Object::get_number() const
 {
 	return number;
 }
@@ -50,7 +50,7 @@ void Object::move()
 {
 }
 
-bool Object::get_move_status()
+bool Object::get_move_status() const
 {
 	return true;
 }
@@ -63,12 +63,12 @@ void Object::set_move_status_as_false()
 {
 }
 
-float Object::get_x_1()
+float Object::get_x_1() const
 {
 	return current_position.x;
 }
 
-float Object::get_y_1()  // Спросить!
+float Object::get_y_1() const // Спросить!
 {
 	return current_position.y;
 }

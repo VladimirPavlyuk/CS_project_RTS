@@ -42,9 +42,6 @@
     <ClCompile Include="Movable_ground.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Attack.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -72,9 +69,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Movable_ground.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Attack.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">

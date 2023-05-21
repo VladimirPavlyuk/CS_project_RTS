@@ -1,5 +1,25 @@
 ﻿  Game.cpp
-C:\Users\User\source\repos\tmp\CS_project_RTS\SFML_test\SFML_test\Game.cpp(29,109): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
-C:\Users\User\source\repos\tmp\CS_project_RTS\SFML_test\SFML_test\Game.cpp(29,94): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
-C:\Users\User\source\repos\tmp\CS_project_RTS\SFML_test\SFML_test\Game.cpp(56): warning C4715: Game::check_if_position_is_available_for_movement: значение возвращается не при всех путях выполнения
-  SFML_test.vcxproj -> C:\Users\User\source\repos\tmp\CS_project_RTS\SFML_test\x64\Debug\SFML_test.exe
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Game.cpp(29,109): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Game.cpp(29,94): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+  Hydralisk.cpp
+  Main.cpp
+  Map.cpp
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(20,66): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(33,75): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(33,61): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(46,67): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(46,50): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(59,53): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(83,71): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(83,57): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(5,86): warning C4390: ";": обнаружен пустой контролируемый оператор; это правильно?
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(6,88): warning C4390: ";": обнаружен пустой контролируемый оператор; это правильно?
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Map.cpp(7,88): warning C4390: ";": обнаружен пустой контролируемый оператор; это правильно?
+  Movable_ground.cpp
+  Object.cpp
+  Player.cpp
+  Scenario.cpp
+  Zergling.cpp
+  Создание кода...
+D:\repositories\CS_project_StarCraft-units\SFML_test\SFML_test\Game.cpp(56): warning C4715: Game::check_if_position_is_available_for_movement: значение возвращается не при всех путях выполнения
+  SFML_test.vcxproj -> D:\repositories\CS_project_StarCraft-units\SFML_test\x64\Debug\SFML_test.exe
